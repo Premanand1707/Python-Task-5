@@ -1,0 +1,42 @@
+import re
+def validate_email(email):
+    # Regular expression pattern for validating an email address
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern, email) is not None
+
+def validate_bangladesh_mobile(number):
+    # Regular expression pattern for validating Bangladeshi mobile numbers
+    pattern = r'^\+8801[3-9]\d{8}$'
+    return re.match(pattern, number) is not None
+
+def validate_usa_telephone(number):
+    # Regular expression pattern for validating USA telephone numbers
+    pattern = r'^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$'
+    return re.match(pattern, number) is not None
+
+def validate_password(password):
+    # Regular expression pattern for validating a 16 character alphanumeric password with special characters
+    pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{16}$'
+    return re.match(pattern, password) is not None
+
+# Test the functions
+emails = ["test@example.com", "invalid-email"]
+bangladesh_mobiles = ["+8801734567890", "+880173456789"]
+usa_telephones = ["(123) 456-7890", "123-456-7890", "123.456.7890", "1234567890"]
+passwords = ["Aa1!Aa1!Aa1!Aa1!", "invalidPassword123"]
+
+print("Email Validation:")
+for email in emails:
+    print(f"{email}: {validate_email(email)}")
+
+print("\nBangladesh Mobile Validation:")
+for number in bangladesh_mobiles:
+    print(f"{number}: {validate_bangladesh_mobile(number)}")
+
+print("\nUSA Telephone Validation:")
+for number in usa_telephones:
+    print(f"{number}: {validate_usa_telephone(number)}")
+
+print("\nPassword Validation:")
+for pwd in passwords:
+    print(f"{pwd}: {validate_password(pwd)}")
