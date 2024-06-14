@@ -1,0 +1,12 @@
+# Given list of mixed data types
+data = [10, 501, 22, 37,"Python", 100, 999, 87, 351,]
+
+# Function to check if an element is an integer or string using lambda
+check_type = lambda x: "Integer" if isinstance(x, int) else "String"
+
+# Applying the lambda function to each element in the list
+result = list(map(check_type, data))
+
+# Print the results
+for element, element_type in zip(data, result):
+    print(f"Element: {element}, Type: {element_type}")
