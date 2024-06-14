@@ -1,0 +1,20 @@
+# Python program to create Fibonacci series using lambda function
+
+# Function to generate the next Fibonacci number using a lambda function
+fib = lambda x, y: x + y
+
+# Initialize the first two Fibonacci numbers
+a, b = 0, 1
+
+# Initialize the Fibonacci series list
+fibonacci_series = []
+
+# Generate the Fibonacci series up to 50 elements
+for _ in range(50):
+    # Append the next Fibonacci number to the series list
+    fibonacci_series.append(b)
+    # Update a and b to the next two numbers in the series
+    a, b = b, fib(a, b)
+
+# Print the Fibonacci series
+print("Fibonacci series up to 50 elements:", fibonacci_series)
